@@ -18,7 +18,8 @@
     </style>
 
     <script>
-      var ws = new WebSocket("ws://192.168.0.15:5000");
+      var host = location.origin.replace(/^http/, 'ws')
+      var ws = new WebSocket(host);
       ws.onmessage = function (event) {
         var li = document.createElement('li');
         li.innerHTML = JSON.parse(event.data);
